@@ -85,7 +85,8 @@ We initialised our first EC2 instance as our Docker Swarm manager and added our 
 
 The two nodes would allow our system to handle larger amounts of traffic without issue and having multiple replicas gave us some redundancy in case we encountered any problems as well as allowing us to keep the application up even during updates.
 
-![docker swarm](https://user-images.githubusercontent.com/86321052/132056900-1c23d2bc-5689-4220-a38e-81486aa5cedc.jpg)
+![docker swarm](https://user-images.githubusercontent.com/86321052/132061259-9b1447f2-65d5-40a1-b92b-84322ac2d679.jpg)
+
 ## 9. Jenkins
 We installed Jenkins onto our main EC2 instance and created a pipeline job which would automate the deployment our application. The job would build the images we had designed earlier, run unit tests of the python running our application, push our up-to-date images to DockerHub and finally deploy our stack to get the application up and running.
 
