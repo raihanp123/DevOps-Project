@@ -13,26 +13,26 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "git checkout swarm && docker-compose build"
+                sh "docker-compose build"
             }
         }
         
         stage('Test') {
             steps {
-                sh "git checkout swarm && cd frontend && pip3 install -r requirements.txt && python3 -m pytest --cov application/ --cov-report html"
-                sh "git checkout swarm && cd backend && pip3 install -r requirements.txt && python3 -m pytest --cov application/ --cov-report html"
+                sh "cd frontend && pip3 install -r requirements.txt && python3 -m pytest --cov application/ --cov-report html"
+                sh "cd backend && pip3 install -r requirements.txt && python3 -m pytest --cov application/ --cov-report html"
             }
         }
         
         stage('Push') {
             steps {
-                sh 'git checkout swarm && docker login -u ${USERNAME} -p ${PASSWORD} && docker-compose push'
+                sh 'docker login -u ${USERNAME} -p ${PASSWORD} && docker-compose push' // Single quotaton marks used to allow the variables to be passed correctly
             }
         }
         
         stage('Deploy') {
             steps {
-                sh "git checkout swarm && docker stack deploy --compose-file docker-compose.yaml project-stack"
+                sh "docker stack deploy --compose-file docker-compose.yaml project-stack"
             }
         
         }
