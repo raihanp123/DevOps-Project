@@ -71,7 +71,7 @@ We installed Docker, MySQL and Python onto our main EC2 instance and Docker onto
 ## 6. Docker
 We created Dockerfiles for both the frontend and backend parts of the application before building our docker images for our frontend, backend and database. We created a nginx.conf file and another image to create an nginx instance which would allow us to access into our application via the internet using a reverse-proxy.
 
-![docker compose screenshot](https://user-images.githubusercontent.com/86321052/132056980-32785a11-53e4-45af-9722-6fde420329c7.jpg)
+![docker compose screenshot](https://user-images.githubusercontent.com/86321052/132061506-fb19cb4f-31ed-47e4-8815-fedee73d9564.jpg)
 
 We created containers for our Docker images and tested that we could access our application via the web.
 
