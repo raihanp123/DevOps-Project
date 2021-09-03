@@ -23,7 +23,9 @@ The main requirements of the task were:
 
 ## 2. Links
 Jira board: https://team-1624352285994.atlassian.net/jira/software/projects/DOP/boards/3 
+
 GitHub repo: https://github.com/raihanp123/DevOps-Project
+
 Presentation: https://docs.google.com/presentation/d/1QdMEAshmT4EC4gIwOyH_vorNRx6GK_1EGAHMOhiNIVo/edit?usp=sharing
 
 ## 3. Planning
