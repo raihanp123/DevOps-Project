@@ -1,0 +1,6 @@
+/venv/
+**/**/__pycache__/
+**/**/.coverage
+/backend/application/data.db
+/frontend/htmlcov/
+/backend/htmlcov/
