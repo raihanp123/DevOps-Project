@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+    - target: 80
+      published: 80
+      protocol: tcp
+    deploy:
+      replicas: 2
+    volumes:
+    - type: bind
+      source: ./nginx.conf
+      target: /etc/nginx/nginx.conf
+
+  frontend:
+    image: wkurtze/project-frontendimage:latest
+    build: ./frontend
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+    deploy:
+      replicas: 2
+
+  backend:
+    image: wkurtze/project-backendimage:latest
+    build: ./backend
+    ports:
+    - target: 5001
+      published: 5001
+      protocol: tcp
+    deploy:
+      replicas: 3
+    environment:
+      DATABASE_URI: ${DB_URI}
+      SECRET_KEY: ${SEC_KEY}
+
+  database:
+    image: wkurtze/project-databaseimage:latest
+    build: ./database
+    ports:
+    - target: 3306
+      published: 3306
+      protocol: tcp
+    deploy:
+      replicas: 2
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PW}
